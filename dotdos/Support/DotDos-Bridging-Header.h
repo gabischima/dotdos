@@ -9,6 +9,6 @@
 #ifndef DotDos_Bridging_Header_h
 #define DotDos_Bridging_Header_h
 
-#import "/Users/gabi/Development/DotDos/dotdos/Pods/FSCalendar/FSCalendar/FSCalendar.h"
+#import <FSCalendar/FSCalendar.h>
 
 #endif /* DotDos_Bridging_Header_h */
