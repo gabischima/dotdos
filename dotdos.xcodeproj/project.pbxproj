@@ -697,7 +697,7 @@
 				DEVELOPMENT_TEAM = 2X8JS4RXWL;
 				INFOPLIST_FILE = dotdos/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gabischima.dotdos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabischima.dotdos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "dotdos/Support/DotDos-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -714,7 +714,7 @@
 				DEVELOPMENT_TEAM = 2X8JS4RXWL;
 				INFOPLIST_FILE = dotdos/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gabischima.dotdos;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabischima.dotdos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "dotdos/Support/DotDos-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
@@ -734,6 +734,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabischima.dotdosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "dotdos/Support/DotDos-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dotdos.app/dotdos";
@@ -752,6 +753,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gabischima.dotdosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "dotdos/Support/DotDos-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dotdos.app/dotdos";
