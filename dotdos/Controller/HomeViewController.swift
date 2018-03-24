@@ -84,8 +84,16 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "0", for: indexPath) as! DayCell
-        
+
         return cell
+    }
+    
+    // MARK:- Segue Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
 }
 
