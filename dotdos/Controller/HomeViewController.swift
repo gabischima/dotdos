@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FSCalendar
 
 class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,7 +18,10 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        self.calendar.dataSource = self
+        self.calendar.delegate = self
+        
         // calendar appearance
         self.calendar?.appearance.weekdayFont = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight.thin)
         self.calendar.appearance.caseOptions = [.headerUsesUpperCase,.weekdayUsesSingleUpperCase]
@@ -59,9 +63,18 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
     // go to day today
-    //    @IBAction func goToToday(_ sender: Any) {
-    //        self.calendar.setCurrentPage(Date(), animated: true)
-    //    }
+    @IBAction func goToToday(_ sender: Any) {
+        self.calendar.select(Date(), scrollToDate: true)
+    }
+    
+    @IBAction func toggleCalendar(_ sender: Any) {
+//        if self.calendar.scope == .month {
+//            self.calendar.setScope(.week, animated: true)
+//        } else {
+//            self.calendar.setScope(.month, animated: true)
+//        }
+//        self.view.updateConstraints()
+    }
     
     // MARK:- FSCalendar Methods
     
@@ -78,12 +91,14 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         //        let month = Calendar.current.component(.month, from: currentPageDate)
     }
     
+    // MARK:- TableViewDelegate Methods
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "0", for: indexPath) as! DayCell
+        let cell = UITableViewCell()
 
         return cell
     }
