@@ -68,19 +68,24 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
     @IBAction func toggleCalendar(_ sender: Any) {
-//        if self.calendar.scope == .month {
-//            self.calendar.setScope(.week, animated: true)
-//        } else {
-//            self.calendar.setScope(.month, animated: true)
-//        }
-//        self.view.updateConstraints()
+        if self.calendar.scope == .month {
+            self.calendar.setScope(.week, animated: true)
+        } else {
+            self.calendar.setScope(.month, animated: true)
+        }
     }
     
     // MARK:- FSCalendar Methods
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         // resize calendar to week size
-        self.calendar.frame.size.height = 80
+        switch (calendar.scope) {
+            case .week:
+                self.calendar.frame.size.height = 81.361
+            case .month:
+                self.calendar.frame.size.height = 274.0
+        }
+        self.mytableview.reloadData()
         self.view.layoutIfNeeded()
     }
     
