@@ -16,7 +16,6 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         
         self.mytableview.tableFooterView = UIView()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     override func didReceiveMemoryWarning() {
