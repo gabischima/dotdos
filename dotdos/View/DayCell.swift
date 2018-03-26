@@ -6,9 +6,10 @@
 //  Copyright © 2018 Gabriela Schirmer Mauricio. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class DayCell: UITableViewCell {
-    
+    @IBOutlet weak var img: UIImageView!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
 }

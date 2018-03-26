@@ -33,15 +33,18 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         self.calendar.headerHeight = 10
         self.calendar.appearance.headerTitleColor = UIColor.clear
         
+        self.calendar.select(Date(), scrollToDate: false)
+        
         self.mytableview.addSubview(calendar)
         
         // change navigation bar
-        self.navigationTitle = getMonth(date: self.calendar.currentPage)
+        self.navigationTitle = formatDate(date: self.calendar.currentPage, format: "LLLL")
         self.navigationController?.navigationBar.topItem?.title = self.navigationTitle
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 
         self.mytableview.tableFooterView = UIView()
-        
+        self.mytableview.register(UINib(nibName: "DayCell", bundle: nil), forCellReuseIdentifier: "dayCell")
+
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern.png")!)
     }
     
@@ -55,23 +58,23 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     // MARK:- Functions
     
-    func getMonth(date: Date) -> String {
+    func formatDate(date: Date, format: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "LLLL"
-        let nameOfMonth = dateFormatter.string(from: date)
-        return nameOfMonth
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.string(from: date)
+        return date
     }
     
-    // go to day today
     @IBAction func goToToday(_ sender: Any) {
         self.calendar.select(Date(), scrollToDate: true)
+        self.mytableview.reloadData()
     }
     
     @IBAction func toggleCalendar(_ sender: Any) {
         if self.calendar.scope == .month {
-            self.calendar.setScope(.week, animated: true)
+            self.calendar.setScope(.week, animated: false)
         } else {
-            self.calendar.setScope(.month, animated: true)
+            self.calendar.setScope(.month, animated: false)
         }
     }
     
@@ -90,22 +93,32 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-        self.navigationTitle = getMonth(date: self.calendar.currentPage)
+        self.navigationTitle = formatDate(date: self.calendar.currentPage, format: "LLLL")
         
         self.navigationController?.navigationBar.topItem?.title = self.navigationTitle
         //        let month = Calendar.current.component(.month, from: currentPageDate)
     }
     
-    // MARK:- TableViewDelegate Methods
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.mytableview.reloadData()
+    }
+    
+    // MARK:- TableView DataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell", for: indexPath) as! DayCell
+        let img = #imageLiteral(resourceName: "event").withRenderingMode(.alwaysTemplate)
+        cell.img.image = img
+        cell.img.tintColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return formatDate(date: self.calendar.selectedDate!, format: "dd/MM/yyyy")
     }
     
     // MARK:- Segue Methods
