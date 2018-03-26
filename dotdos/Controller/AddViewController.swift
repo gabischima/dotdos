@@ -12,6 +12,9 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var mytableview: UITableView!
     
+    let listTitle: [String] = ["Task", "Event", "Note"]
+    let listImg: [UIImage] = [#imageLiteral(resourceName: "task"), #imageLiteral(resourceName: "event"), #imageLiteral(resourceName: "note")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +26,7 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.listTitle.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
