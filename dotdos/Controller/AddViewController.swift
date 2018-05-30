@@ -31,6 +31,8 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.imageView?.image = listImg[indexPath.row]
+        cell.textLabel?.text = listTitle[indexPath.row]
         
         return cell
     }
