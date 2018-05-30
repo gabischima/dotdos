@@ -33,7 +33,8 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         let cell = UITableViewCell()
         cell.imageView?.image = listImg[indexPath.row]
         cell.textLabel?.text = listTitle[indexPath.row]
-        
+        cell.selectionStyle = .none
+
         return cell
     }
 }
