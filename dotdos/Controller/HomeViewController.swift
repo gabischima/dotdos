@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         self.mytableview.tableFooterView = UIView()
         self.mytableview.register(UINib(nibName: "DayCell", bundle: nil), forCellReuseIdentifier: "dayCell")
 
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
     }
     
     override func didReceiveMemoryWarning() {
