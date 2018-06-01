@@ -19,6 +19,7 @@
 		0636ADFB20323B0A00FA6B72 /* dotdosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADFA20323B0A00FA6B72 /* dotdosTests.swift */; };
 		0636AE0620323B0A00FA6B72 /* dotdosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */; };
 		06F14A78D2ABF5385EA60CB7 /* Pods_dotdos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3203284767952AB23230A58 /* Pods_dotdos.framework */; };
+		865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CBA5320C1AE930060651F /* NewTaskViewController.swift */; };
 		B874FA875B2A9735F7090736 /* Pods_dotdosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930802375C8288FD0EE3683B /* Pods_dotdosTests.framework */; };
 		C70A273FE988339F87E0F53C /* Pods_dotdosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		510A42CC8B8F01DA0BD0BB2E /* Pods-dotdosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosUITests/Pods-dotdosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59DB58FFE1FFA12E8DDBF777 /* Pods-dotdosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosTests/Pods-dotdosTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		865CBA5320C1AE930060651F /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewTaskViewController.swift; path = dotdos/Controller/NewTaskViewController.swift; sourceTree = SOURCE_ROOT; };
 		930802375C8288FD0EE3683B /* Pods_dotdosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F59CC3A23CA7CC764E23888 /* Pods-dotdosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosTests/Pods-dotdosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8AFDA78E28A8B9048094EE5 /* Pods-dotdos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,10 +103,10 @@
 		0622A121205DFC2300DE6D34 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0636ADE620323B0A00FA6B72 /* Main.storyboard */,
-				0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */,
 				0622A127205DFCDB00DE6D34 /* DayCell.swift */,
 				0622A11F205DFBFA00DE6D34 /* DayCell.xib */,
+				0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */,
+				0636ADE620323B0A00FA6B72 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,9 +114,10 @@
 		0622A122205DFC2C00DE6D34 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0636ADE220323B0A00FA6B72 /* AppDelegate.swift */,
 				0608D207205FF11A007F3A6D /* AddViewController.swift */,
+				0636ADE220323B0A00FA6B72 /* AppDelegate.swift */,
 				0608D20B205FF2AC007F3A6D /* HomeViewController.swift */,
+				865CBA5320C1AE930060651F /* NewTaskViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,7 +226,7 @@
 				0636ADDC20323B0900FA6B72 /* Frameworks */,
 				0636ADDD20323B0900FA6B72 /* Resources */,
 				DDE1EE21351A833284394293 /* [CP] Embed Pods Frameworks */,
-				0608D206205EB71C007F3A6D /* ShellScript */,
+				865CBA5520C1AF850060651F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -350,19 +353,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0608D206205EB71C007F3A6D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "function removeHeaders() {\n    find $BUILD_ROOT/Debug-iphonesimulator/ -name '*.h' -exec rm -f {} \\;\n}\nremoveHeaders";
-		};
 		1800C93EE6BB97FD2B35D5CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,6 +370,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		865CBA5520C1AF850060651F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "function removeHeaders() {\n    find $BUILD_ROOT/Debug-iphonesimulator/ -name '*.h' -exec rm -f {} \\;\n}\nremoveHeaders";
 		};
 		CF034EB9AD73FA6BC59F3891 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -448,6 +451,7 @@
 				0636ADEB20323B0A00FA6B72 /* dotdos.xcdatamodeld in Sources */,
 				0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */,
 				0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */,
+				865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */,
 				0608D20C205FF2AC007F3A6D /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

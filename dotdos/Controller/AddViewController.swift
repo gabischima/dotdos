@@ -37,4 +37,13 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "goToAddTask", sender: self)
+        default:
+            break
+        }
+    }
 }

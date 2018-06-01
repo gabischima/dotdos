@@ -138,17 +138,33 @@
         <!--New Task-->
         <scene sceneID="uTe-Vs-UV2">
             <objects>
-                <viewController title="New Task" id="FFB-qG-IJs" sceneMemberID="viewController">
+                <viewController title="New Task" id="FFB-qG-IJs" customClass="NewTaskViewController" customModule="dotdos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eH1-hQ-JVA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Afl-AV-l9g">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Afl-AV-l9g" firstAttribute="bottom" secondItem="0fg-dW-dth" secondAttribute="bottom" id="8ap-50-TRp"/>
+                            <constraint firstItem="Afl-AV-l9g" firstAttribute="leading" secondItem="0fg-dW-dth" secondAttribute="leading" id="T5a-pg-wY4"/>
+                            <constraint firstItem="Afl-AV-l9g" firstAttribute="top" secondItem="0fg-dW-dth" secondAttribute="top" id="acL-aY-0q1"/>
+                            <constraint firstItem="Afl-AV-l9g" firstAttribute="trailing" secondItem="0fg-dW-dth" secondAttribute="trailing" id="gU2-J2-y80"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0fg-dW-dth"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Afl-AV-l9g" id="JQF-kh-aHg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNL-lj-9iO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="0.0"/>
+            <point key="canvasLocation" x="1512.8" y="-0.44977511244377816"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1wz-X7-Fab">
