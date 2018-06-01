@@ -8,6 +8,7 @@ target 'dotdos' do
   # Pods for dotdos
 
   pod 'FSCalendar'
+  pod 'Eureka'
 
   target 'dotdosTests' do
     inherit! :search_paths
@@ -19,4 +20,19 @@ target 'dotdos' do
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if  target.name == 'Eureka'
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.0'
+            end
+        end
+    end
+
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings.delete('CODE_SIGNING_ALLOWED')
+        config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
 end

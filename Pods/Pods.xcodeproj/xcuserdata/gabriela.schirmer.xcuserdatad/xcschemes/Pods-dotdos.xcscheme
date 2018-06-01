@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3E26FE314156370546A816B2A1D9488C"
+               BlueprintIdentifier = "2E1FC5B8FB102A59E2180920C552EB31"
                BuildableName = "Pods_dotdos.framework"
                BlueprintName = "Pods-dotdos"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3E26FE314156370546A816B2A1D9488C"
+            BlueprintIdentifier = "2E1FC5B8FB102A59E2180920C552EB31"
             BuildableName = "Pods_dotdos.framework"
             BlueprintName = "Pods-dotdos"
             ReferencedContainer = "container:Pods.xcodeproj">
