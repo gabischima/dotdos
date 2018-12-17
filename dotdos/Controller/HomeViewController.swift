@@ -42,10 +42,11 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         self.navigationController?.navigationBar.topItem?.title = self.navigationTitle
         self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 
+        // table view
         self.mytableview.tableFooterView = UIView()
         self.mytableview.register(UINib(nibName: "DayCell", bundle: nil), forCellReuseIdentifier: "dayCell")
+        self.mytableview.backgroundColor = UIColor(patternImage: UIImage(named: "pattern.png")!)
 
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern.png")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,9 +112,10 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell", for: indexPath) as! DayCell
+        cell.backgroundColor = UIColor.clear
         let img = #imageLiteral(resourceName: "event").withRenderingMode(.alwaysTemplate)
         cell.img.image = img
-        cell.img.tintColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        cell.img.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return cell
     }
     

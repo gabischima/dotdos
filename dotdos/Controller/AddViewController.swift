@@ -18,7 +18,10 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // table view
         self.mytableview.tableFooterView = UIView()
+        self.mytableview.register(UINib(nibName: "AddCell", bundle: nil), forCellReuseIdentifier: "addCell")
+        self.mytableview.backgroundColor = UIColor(patternImage: UIImage(named: "pattern.png")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,8 +33,17 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as! AddCell
+        cell.backgroundColor = UIColor.clear
+        cell.accessoryType = .disclosureIndicator
+        cell.title.text = listTitle[indexPath.row]
+        cell.img.image = listImg[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let segue = "goToAdd" + listTitle[indexPath.row]
+        performSegue(withIdentifier: segue, sender: self)
     }
 }
