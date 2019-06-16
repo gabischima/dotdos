@@ -12,8 +12,8 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var mytableview: UITableView!
     
-    let listTitle: [String] = ["Task", "Event", "Note"]
-    let listImg: [UIImage] = [#imageLiteral(resourceName: "task"), #imageLiteral(resourceName: "event"), #imageLiteral(resourceName: "note")]
+    let listTitle: [String] = ["Task"]
+    let listImg: [UIImage] = [#imageLiteral(resourceName: "task")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

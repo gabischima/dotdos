@@ -13,15 +13,12 @@
 		0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622A127205DFCDB00DE6D34 /* DayCell.swift */; };
 		0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADE220323B0A00FA6B72 /* AppDelegate.swift */; };
 		0636ADE820323B0A00FA6B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADE620323B0A00FA6B72 /* Main.storyboard */; };
-		0636ADEB20323B0A00FA6B72 /* dotdos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADE920323B0A00FA6B72 /* dotdos.xcdatamodeld */; };
 		0636ADED20323B0A00FA6B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADEC20323B0A00FA6B72 /* Assets.xcassets */; };
 		0636ADF020323B0A00FA6B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */; };
 		0636ADFB20323B0A00FA6B72 /* dotdosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADFA20323B0A00FA6B72 /* dotdosTests.swift */; };
 		0636AE0620323B0A00FA6B72 /* dotdosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */; };
 		06F14A78D2ABF5385EA60CB7 /* Pods_dotdos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3203284767952AB23230A58 /* Pods_dotdos.framework */; };
 		865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CBA5320C1AE930060651F /* NewTaskViewController.swift */; };
-		B874FA875B2A9735F7090736 /* Pods_dotdosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930802375C8288FD0EE3683B /* Pods_dotdosTests.framework */; };
-		C70A273FE988339F87E0F53C /* Pods_dotdosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +47,6 @@
 		0636ADDF20323B0900FA6B72 /* dotdos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dotdos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0636ADE220323B0A00FA6B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0636ADE720323B0A00FA6B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0636ADEA20323B0A00FA6B72 /* dotdos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dotdos.xcdatamodel; sourceTree = "<group>"; };
 		0636ADEC20323B0A00FA6B72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0636ADEF20323B0A00FA6B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0636ADF120323B0A00FA6B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,14 +57,10 @@
 		0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dotdosUITests.swift; sourceTree = "<group>"; };
 		0636AE0720323B0A00FA6B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B2855F0D4376EDCDDB42B9 /* Pods-dotdos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.release.xcconfig"; sourceTree = "<group>"; };
-		510A42CC8B8F01DA0BD0BB2E /* Pods-dotdosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosUITests/Pods-dotdosUITests.release.xcconfig"; sourceTree = "<group>"; };
-		59DB58FFE1FFA12E8DDBF777 /* Pods-dotdosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosTests/Pods-dotdosTests.release.xcconfig"; sourceTree = "<group>"; };
 		6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865CBA5320C1AE930060651F /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewTaskViewController.swift; path = dotdos/Controller/NewTaskViewController.swift; sourceTree = SOURCE_ROOT; };
 		930802375C8288FD0EE3683B /* Pods_dotdosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F59CC3A23CA7CC764E23888 /* Pods-dotdosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosTests/Pods-dotdosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8AFDA78E28A8B9048094EE5 /* Pods-dotdos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.debug.xcconfig"; sourceTree = "<group>"; };
-		CC229DBFB82791AFAAB88164 /* Pods-dotdosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdosUITests/Pods-dotdosUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3203284767952AB23230A58 /* Pods_dotdos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B874FA875B2A9735F7090736 /* Pods_dotdosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C70A273FE988339F87E0F53C /* Pods_dotdosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +115,6 @@
 		0622A124205DFC3D00DE6D34 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0636ADE920323B0A00FA6B72 /* dotdos.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,10 +185,6 @@
 			children = (
 				A8AFDA78E28A8B9048094EE5 /* Pods-dotdos.debug.xcconfig */,
 				24B2855F0D4376EDCDDB42B9 /* Pods-dotdos.release.xcconfig */,
-				9F59CC3A23CA7CC764E23888 /* Pods-dotdosTests.debug.xcconfig */,
-				59DB58FFE1FFA12E8DDBF777 /* Pods-dotdosTests.release.xcconfig */,
-				CC229DBFB82791AFAAB88164 /* Pods-dotdosUITests.debug.xcconfig */,
-				510A42CC8B8F01DA0BD0BB2E /* Pods-dotdosUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -241,7 +226,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0636AE0D20323B0A00FA6B72 /* Build configuration list for PBXNativeTarget "dotdosTests" */;
 			buildPhases = (
-				CF034EB9AD73FA6BC59F3891 /* [CP] Check Pods Manifest.lock */,
 				0636ADF220323B0A00FA6B72 /* Sources */,
 				0636ADF320323B0A00FA6B72 /* Frameworks */,
 				0636ADF420323B0A00FA6B72 /* Resources */,
@@ -260,7 +244,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0636AE1020323B0A00FA6B72 /* Build configuration list for PBXNativeTarget "dotdosUITests" */;
 			buildPhases = (
-				1800C93EE6BB97FD2B35D5CE /* [CP] Check Pods Manifest.lock */,
 				0636ADFD20323B0A00FA6B72 /* Sources */,
 				0636ADFE20323B0A00FA6B72 /* Frameworks */,
 				0636ADFF20323B0A00FA6B72 /* Resources */,
@@ -353,24 +336,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1800C93EE6BB97FD2B35D5CE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dotdosUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		865CBA5520C1AF850060651F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,24 +348,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "function removeHeaders() {\n    find $BUILD_ROOT/Debug-iphonesimulator/ -name '*.h' -exec rm -f {} \\;\n}\nremoveHeaders";
-		};
-		CF034EB9AD73FA6BC59F3891 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-dotdosTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		DBB454B32728FE119B52E4CD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -448,7 +395,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0608D208205FF11A007F3A6D /* AddViewController.swift in Sources */,
-				0636ADEB20323B0A00FA6B72 /* dotdos.xcdatamodeld in Sources */,
 				0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */,
 				0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */,
 				865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */,
@@ -654,7 +600,6 @@
 		};
 		0636AE0E20323B0A00FA6B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F59CC3A23CA7CC764E23888 /* Pods-dotdosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -673,7 +618,6 @@
 		};
 		0636AE0F20323B0A00FA6B72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59DB58FFE1FFA12E8DDBF777 /* Pods-dotdosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -692,7 +636,6 @@
 		};
 		0636AE1120323B0A00FA6B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC229DBFB82791AFAAB88164 /* Pods-dotdosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -709,7 +652,6 @@
 		};
 		0636AE1220323B0A00FA6B72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 510A42CC8B8F01DA0BD0BB2E /* Pods-dotdosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -764,19 +706,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0636ADE920323B0A00FA6B72 /* dotdos.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0636ADEA20323B0A00FA6B72 /* dotdos.xcdatamodel */,
-			);
-			currentVersion = 0636ADEA20323B0A00FA6B72 /* dotdos.xcdatamodel */;
-			path = dotdos.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0636ADD720323B0900FA6B72 /* Project object */;
 }

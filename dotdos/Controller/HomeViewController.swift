@@ -13,6 +13,8 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     var navigationTitle: String = ""
     
+    var tasks: [Any] = []
+    
     @IBOutlet weak var mytableview: UITableView!
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -106,7 +108,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     // MARK:- TableView DataSource Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return tasks.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
