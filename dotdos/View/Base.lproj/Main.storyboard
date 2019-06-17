@@ -80,11 +80,44 @@
                     <connections>
                         <outlet property="calendar" destination="pMP-Dh-aY3" id="niR-As-5aY"/>
                         <outlet property="mytableview" destination="SKW-tZ-abf" id="UtF-JL-LmF"/>
+                        <segue destination="ijq-w6-dk5" kind="show" identifier="goToTaskDetail" id="pHB-LN-A0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="-0.44977511244377816"/>
+        </scene>
+        <!--Task-->
+        <scene sceneID="X9W-Tl-GWZ">
+            <objects>
+                <viewController id="ijq-w6-dk5" customClass="TaskDetailViewController" customModule="dotdos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1d0-f3-Jjn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MUD-3q-koD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ijq-w6-dk5" id="3v6-lg-4M1"/>
+                                    <outlet property="delegate" destination="ijq-w6-dk5" id="FOr-da-09i"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ifg-GI-LiF" firstAttribute="trailing" secondItem="MUD-3q-koD" secondAttribute="trailing" id="LIQ-wX-Y7f"/>
+                            <constraint firstItem="MUD-3q-koD" firstAttribute="leading" secondItem="ifg-GI-LiF" secondAttribute="leading" id="XOQ-G7-nsj"/>
+                            <constraint firstItem="MUD-3q-koD" firstAttribute="top" secondItem="ifg-GI-LiF" secondAttribute="top" id="fr5-zl-GG7"/>
+                            <constraint firstItem="ifg-GI-LiF" firstAttribute="bottom" secondItem="MUD-3q-koD" secondAttribute="bottom" id="wtt-hQ-1iV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ifg-GI-LiF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Task" largeTitleDisplayMode="never" id="p5y-GV-0Tw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSw-tH-v1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="704"/>
         </scene>
         <!--Add-->
         <scene sceneID="U0b-Ua-BBu">

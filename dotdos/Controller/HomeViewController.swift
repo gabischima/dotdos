@@ -16,6 +16,8 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     
     var tasks: [Any] = []
     
+    var selectedTask: Any = ()
+    
     @IBOutlet weak var mytableview: UITableView!
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -167,6 +169,11 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedTask = tasks[indexPath.row]
+        performSegue(withIdentifier: "goToTaskDetail", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return formatDate(date: self.calendar.selectedDate!, format: "dd/MM/yyyy")
     }
@@ -177,6 +184,11 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+        if segue.identifier == "goToTaskDetail" {
+            let nextVC = (segue.destination as! TaskDetailViewController)
+            nextVC.task = self.selectedTask as! String
+        }
     }
 }
 
