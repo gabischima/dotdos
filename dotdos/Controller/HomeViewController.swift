@@ -8,6 +8,7 @@
 
 import UIKit
 import FSCalendar
+import CoreData
 
 class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -55,6 +56,7 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.fetchFromCore()
         self.mytableview.reloadData()
     }
     
@@ -77,6 +79,22 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
             self.calendar.setScope(.week, animated: false)
         } else {
             self.calendar.setScope(.month, animated: false)
+        }
+    }
+    
+    func fetchFromCore() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        self.tasks.removeAll()
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tasks")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                tasks.append(data.value(forKey: "title") as! String)
+            }
+        } catch {
+            print("Failed")
         }
     }
     
@@ -113,11 +131,40 @@ class HomeViewController: UIViewController, FSCalendarDataSource, FSCalendarDele
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayCell", for: indexPath) as! DayCell
-        let img = #imageLiteral(resourceName: "event").withRenderingMode(.alwaysTemplate)
+        let img = #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate)
         cell.img.image = img
-        cell.img.tintColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        cell.img.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         cell.selectionStyle = .none
+        cell.title.text = tasks[indexPath.row] as? String
+        cell.subtitle.text = ""
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            // remove the deleted item from the model
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Tasks")
+
+            if let result = try? context.fetch(fetchRequest) {
+                context.delete(result[indexPath.row] as! NSManagedObject)
+            }
+
+            do {
+                try context.save()
+                tasks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .right)
+            } catch {
+                print("Failed saving")
+            }
+        default:
+            return
+            
+        }
+
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -17,6 +17,7 @@
 		0636ADF020323B0A00FA6B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */; };
 		0636ADFB20323B0A00FA6B72 /* dotdosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADFA20323B0A00FA6B72 /* dotdosTests.swift */; };
 		0636AE0620323B0A00FA6B72 /* dotdosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */; };
+		06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06DF9CAF22B6C92F00098C48 /* dotdos.xcdatamodeld */; };
 		06F14A78D2ABF5385EA60CB7 /* Pods_dotdos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3203284767952AB23230A58 /* Pods_dotdos.framework */; };
 		865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CBA5320C1AE930060651F /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		0636AE0120323B0A00FA6B72 /* dotdosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dotdosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dotdosUITests.swift; sourceTree = "<group>"; };
 		0636AE0720323B0A00FA6B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06DF9CB022B6C92F00098C48 /* dotdos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dotdos.xcdatamodel; sourceTree = "<group>"; };
 		24B2855F0D4376EDCDDB42B9 /* Pods-dotdos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.release.xcconfig"; sourceTree = "<group>"; };
 		6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865CBA5320C1AE930060651F /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewTaskViewController.swift; path = dotdos/Controller/NewTaskViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -115,6 +117,7 @@
 		0622A124205DFC3D00DE6D34 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06DF9CAF22B6C92F00098C48 /* dotdos.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */,
 				0608D208205FF11A007F3A6D /* AddViewController.swift in Sources */,
 				0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */,
 				0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */,
@@ -706,6 +710,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		06DF9CAF22B6C92F00098C48 /* dotdos.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				06DF9CB022B6C92F00098C48 /* dotdos.xcdatamodel */,
+			);
+			currentVersion = 06DF9CB022B6C92F00098C48 /* dotdos.xcdatamodel */;
+			path = dotdos.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0636ADD720323B0900FA6B72 /* Project object */;
 }
