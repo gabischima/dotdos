@@ -79,7 +79,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendar" destination="pMP-Dh-aY3" id="niR-As-5aY"/>
-                        <outlet property="mytableview" destination="SKW-tZ-abf" id="UtF-JL-LmF"/>
+                        <outlet property="myTableView" destination="SKW-tZ-abf" id="xdW-7L-FBv"/>
                         <segue destination="ijq-w6-dk5" kind="show" identifier="goToTaskDetail" id="pHB-LN-A0d"/>
                     </connections>
                 </viewController>
@@ -114,6 +114,9 @@
                         <viewLayoutGuide key="safeArea" id="ifg-GI-LiF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Task" largeTitleDisplayMode="never" id="p5y-GV-0Tw"/>
+                    <connections>
+                        <outlet property="myTableView" destination="MUD-3q-koD" id="qmH-OS-BUf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSw-tH-v1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

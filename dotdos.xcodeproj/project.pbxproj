@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		0608D208205FF11A007F3A6D /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608D207205FF11A007F3A6D /* AddViewController.swift */; };
 		0608D20C205FF2AC007F3A6D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0608D20B205FF2AC007F3A6D /* HomeViewController.swift */; };
-		0622A120205DFBFA00DE6D34 /* DayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0622A11F205DFBFA00DE6D34 /* DayCell.xib */; };
-		0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622A127205DFCDB00DE6D34 /* DayCell.swift */; };
+		0622A120205DFBFA00DE6D34 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0622A11F205DFBFA00DE6D34 /* TaskCell.xib */; };
+		0622A128205DFCDB00DE6D34 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0622A127205DFCDB00DE6D34 /* TaskCell.swift */; };
 		0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADE220323B0A00FA6B72 /* AppDelegate.swift */; };
 		0636ADE820323B0A00FA6B72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADE620323B0A00FA6B72 /* Main.storyboard */; };
 		0636ADED20323B0A00FA6B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADEC20323B0A00FA6B72 /* Assets.xcassets */; };
 		0636ADF020323B0A00FA6B72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */; };
 		0636ADFB20323B0A00FA6B72 /* dotdosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636ADFA20323B0A00FA6B72 /* dotdosTests.swift */; };
 		0636AE0620323B0A00FA6B72 /* dotdosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */; };
+		063D77ED22C0055800BDA449 /* Extension+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063D77EC22C0055800BDA449 /* Extension+ViewController.swift */; };
 		06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06DF9CAF22B6C92F00098C48 /* dotdos.xcdatamodeld */; };
 		06DF9CB322B725B000098C48 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DF9CB222B725B000098C48 /* TaskDetailViewController.swift */; };
 		06F14A78D2ABF5385EA60CB7 /* Pods_dotdos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3203284767952AB23230A58 /* Pods_dotdos.framework */; };
@@ -44,8 +45,8 @@
 		0608D207205FF11A007F3A6D /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		0608D20B205FF2AC007F3A6D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0622A11C2055D2B900DE6D34 /* DotDos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DotDos-Bridging-Header.h"; sourceTree = "<group>"; };
-		0622A11F205DFBFA00DE6D34 /* DayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayCell.xib; sourceTree = "<group>"; };
-		0622A127205DFCDB00DE6D34 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		0622A11F205DFBFA00DE6D34 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		0622A127205DFCDB00DE6D34 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		0636ADDF20323B0900FA6B72 /* dotdos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dotdos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0636ADE220323B0A00FA6B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0636ADE720323B0A00FA6B72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		0636AE0120323B0A00FA6B72 /* dotdosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dotdosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0636AE0520323B0A00FA6B72 /* dotdosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dotdosUITests.swift; sourceTree = "<group>"; };
 		0636AE0720323B0A00FA6B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		063D77EC22C0055800BDA449 /* Extension+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController.swift"; sourceTree = "<group>"; };
 		06DF9CB022B6C92F00098C48 /* dotdos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = dotdos.xcdatamodel; sourceTree = "<group>"; };
 		06DF9CB222B725B000098C48 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		24B2855F0D4376EDCDDB42B9 /* Pods-dotdos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,8 +99,8 @@
 		0622A121205DFC2300DE6D34 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0622A127205DFCDB00DE6D34 /* DayCell.swift */,
-				0622A11F205DFBFA00DE6D34 /* DayCell.xib */,
+				0622A127205DFCDB00DE6D34 /* TaskCell.swift */,
+				0622A11F205DFBFA00DE6D34 /* TaskCell.xib */,
 				0636ADEE20323B0A00FA6B72 /* LaunchScreen.storyboard */,
 				0636ADE620323B0A00FA6B72 /* Main.storyboard */,
 			);
@@ -159,6 +161,7 @@
 		0636ADE120323B0A00FA6B72 /* dotdos */ = {
 			isa = PBXGroup;
 			children = (
+				063D77EB22C0053900BDA449 /* Extensions */,
 				0622A124205DFC3D00DE6D34 /* Model */,
 				0622A122205DFC2C00DE6D34 /* Controller */,
 				0622A121205DFC2300DE6D34 /* View */,
@@ -184,6 +187,14 @@
 				0636AE0720323B0A00FA6B72 /* Info.plist */,
 			);
 			path = dotdosUITests;
+			sourceTree = "<group>";
+		};
+		063D77EB22C0053900BDA449 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				063D77EC22C0055800BDA449 /* Extension+ViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		39BEBD454F10EE8D39EDEEF8 /* Pods */ = {
@@ -320,7 +331,7 @@
 			files = (
 				0636ADF020323B0A00FA6B72 /* LaunchScreen.storyboard in Resources */,
 				0636ADED20323B0A00FA6B72 /* Assets.xcassets in Resources */,
-				0622A120205DFBFA00DE6D34 /* DayCell.xib in Resources */,
+				0622A120205DFBFA00DE6D34 /* TaskCell.xib in Resources */,
 				0636ADE820323B0A00FA6B72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,7 +413,8 @@
 			files = (
 				06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */,
 				0608D208205FF11A007F3A6D /* AddViewController.swift in Sources */,
-				0622A128205DFCDB00DE6D34 /* DayCell.swift in Sources */,
+				063D77ED22C0055800BDA449 /* Extension+ViewController.swift in Sources */,
+				0622A128205DFCDB00DE6D34 /* TaskCell.swift in Sources */,
 				0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */,
 				865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */,
 				0608D20C205FF2AC007F3A6D /* HomeViewController.swift in Sources */,
@@ -513,7 +525,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -581,6 +593,7 @@
 				DEVELOPMENT_TEAM = 2X8JS4RXWL;
 				INFOPLIST_FILE = dotdos/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gabischima.dotdos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "dotdos/Support/DotDos-Bridging-Header.h";

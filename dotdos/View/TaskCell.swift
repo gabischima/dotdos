@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayCell: UITableViewCell {
+class TaskCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!

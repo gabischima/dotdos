@@ -12,7 +12,6 @@ import CoreData
 
 class NewTaskViewController: FormViewController {
     
-
     enum RepeatFrequency: String {
         case never = "Never"
         case everyday = "Everyday"
@@ -33,17 +32,17 @@ class NewTaskViewController: FormViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addTapped))
         
-        
         form +++ Section()
             <<< TextRow() { row in
                 row.title = "Tarefa"
                 row.tag = "title"
                 row.placeholder = "Comprar pão"
             }
-//            <<< DateInlineRow() {
-//                $0.title = "Date"
-//                $0.value = Date()
-//            }
+            <<< DateInlineRow() {
+                $0.title = "Data"
+                $0.tag = "date"
+                $0.value = Date()
+            }
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,15 +50,18 @@ class NewTaskViewController: FormViewController {
     }
     
     @objc func addTapped() {
-        let row: TextRow? = form.rowBy(tag: "title")
-        let value = row?.value
+        let titlerow: TextRow? = form.rowBy(tag: "title")
+        let daterow: DateInlineRow? = form.rowBy(tag: "date")
+        let titleValue = titlerow?.value
+        let dateValue = daterow?.value
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Tasks", in: context)
         let newTask = NSManagedObject(entity: entity!, insertInto: context)
-        newTask.setValue(value, forKey: "title")
-        
+        newTask.setValue(titleValue, forKey: "title")
+        newTask.setValue(dateValue, forKey: "date")
+
         do {
             try context.save()
             navigationController?.popToRootViewController(animated: true)

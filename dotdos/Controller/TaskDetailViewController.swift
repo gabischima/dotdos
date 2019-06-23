@@ -11,10 +11,20 @@ import UIKit
 
 class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var task = String()
+    var task: Tasks!
     
+    enum TasksFields: CaseIterable {
+        case title
+        case date
+    }
+
+    @IBOutlet weak var myTableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.myTableView.tableFooterView = UIView()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,13 +36,25 @@ class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return TasksFields.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        
-        cell.textLabel?.text = task
+        let cell = UITableViewCell()
+        switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = task.value(forKey: "title") as? String
+                break
+            case 1:
+                if let value = task.value(forKey: "date") as? Date {
+                    cell.textLabel?.text = formatDate(date: value, format: "dd/MM/yyyy")
+                } else {
+                    cell.textLabel?.text = "---"
+                }
+                break
+            default:
+                break
+        }
         
         return cell
         
