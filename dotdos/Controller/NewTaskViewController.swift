@@ -48,7 +48,7 @@ class NewTaskViewController: FormViewController {
                 row.tag = "important"
             }
             <<< TextAreaRow() { row in
-                row.title = "Descrição, nota ou lista"
+                row.placeholder = "Descrição, nota ou lista"
                 row.tag = "detail"
             }
     }
