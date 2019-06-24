@@ -133,7 +133,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         let text = tasks[indexPath.row].value(forKey: "title") as? String
-        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text ?? "")
+        let attributeString =  NSMutableAttributedString(string: text ?? "")
 
         let done = tasks[indexPath.row].value(forKey: "done") as? Bool
 
@@ -141,7 +141,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             img = #imageLiteral(resourceName: "taskDone").withRenderingMode(.alwaysTemplate)
             cell.img.image = img
             
-            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
         } else {
             attributeString.removeAttribute(NSAttributedStringKey.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         }
@@ -170,13 +170,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
             do {
                 try context.save()
-                tableView.beginUpdates()
                 self.tasks[indexPath.row].setValue(!donevalue, forKey: "done")
-                tableView.endUpdates()
             } catch {
                 print("Failed saving")
             }
-
             success(true)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
                 tableView.reloadData()

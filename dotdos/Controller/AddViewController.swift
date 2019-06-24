@@ -19,6 +19,7 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         
         self.mytableview.tableFooterView = UIView()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,7 +35,7 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         cell.imageView?.image = listImg[indexPath.row]
         cell.textLabel?.text = listTitle[indexPath.row]
         cell.selectionStyle = .none
-
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
