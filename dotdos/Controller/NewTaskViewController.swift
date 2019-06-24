@@ -38,10 +38,18 @@ class NewTaskViewController: FormViewController {
                 row.tag = "title"
                 row.placeholder = "Comprar pão"
             }
-            <<< DateInlineRow() {
-                $0.title = "Data"
-                $0.tag = "date"
-                $0.value = Date()
+            <<< DateInlineRow() { row in
+                row.title = "Data"
+                row.tag = "date"
+                row.value = Date()
+            }
+            <<< SwitchRow() { row in
+                row.title = "Importante"
+                row.tag = "important"
+            }
+            <<< TextAreaRow() { row in
+                row.title = "Descrição, nota ou lista"
+                row.tag = "detail"
             }
     }
     
@@ -52,8 +60,12 @@ class NewTaskViewController: FormViewController {
     @objc func addTapped() {
         let titlerow: TextRow? = form.rowBy(tag: "title")
         let daterow: DateInlineRow? = form.rowBy(tag: "date")
+        let importantrow: SwitchRow? = form.rowBy(tag: "important")
+        let detailrow: TextAreaRow? = form.rowBy(tag: "detail")
         let titleValue = titlerow?.value
         let dateValue = daterow?.value
+        let importantValue = importantrow?.value
+        let detailValue = detailrow?.value
 
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -61,6 +73,8 @@ class NewTaskViewController: FormViewController {
         let newTask = NSManagedObject(entity: entity!, insertInto: context)
         newTask.setValue(titleValue, forKey: "title")
         newTask.setValue(dateValue, forKey: "date")
+        newTask.setValue(importantValue, forKey: "important")
+        newTask.setValue(detailValue, forKey: "detail")
 
         do {
             try context.save()

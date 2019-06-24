@@ -11,5 +11,4 @@ import UIKit
 class TaskCell: UITableViewCell {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var subtitle: UILabel!
 }

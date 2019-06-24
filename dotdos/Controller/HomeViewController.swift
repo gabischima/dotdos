@@ -126,42 +126,96 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
-        let img = #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate)
+
+        var img = #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate)
         cell.img.image = img
         cell.img.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         cell.selectionStyle = .none
-        cell.title.text = tasks[indexPath.row].value(forKey: "title") as? String
-        cell.subtitle.text = ""
+
+        let text = tasks[indexPath.row].value(forKey: "title") as? String
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text ?? "")
+
+        let done = tasks[indexPath.row].value(forKey: "done") as? Bool
+
+        if done ?? false {
+            img = #imageLiteral(resourceName: "taskDone").withRenderingMode(.alwaysTemplate)
+            cell.img.image = img
+            
+            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        } else {
+            attributeString.removeAttribute(NSAttributedStringKey.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
+        }
         
+        cell.title.attributedText = attributeString
+
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let markAsDone = UIContextualAction(style: .normal, title:  "Feito", handler: { (action:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+
             // remove the deleted item from the model
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             let fetchRequest = NSFetchRequest<Tasks>(entityName: "Tasks")
-            
+            let donevalue = self.tasks[indexPath.row].done
+
             if let result = try? context.fetch(fetchRequest) {
-                context.delete(result[indexPath.row])
+                for data in result {
+                    if data.objectID.description == self.tasks[indexPath.row].objectID.description {
+                        data.setValue(!donevalue, forKey: "done")
+                    }
+                }
             }
-            
+
             do {
                 try context.save()
-                tasks.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .right)
+                tableView.beginUpdates()
+                self.tasks[indexPath.row].setValue(!donevalue, forKey: "done")
+                tableView.endUpdates()
             } catch {
                 print("Failed saving")
             }
-        default:
-            return
-            
-        }
-        
+
+            success(true)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+                tableView.reloadData()
+            }
+        })
+        markAsDone.backgroundColor = .gray
+
+        return UISwipeActionsConfiguration(actions: [markAsDone])
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteTask = UIContextualAction(style: .destructive, title:  "Deletar", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+
+            // remove the deleted item from the model
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<Tasks>(entityName: "Tasks")
+
+            if let result = try? context.fetch(fetchRequest) {
+                for data in result {
+                    if data.objectID.description == self.tasks[indexPath.row].objectID.description {
+                        context.delete(data)
+                    }
+                }
+            }
+
+            do {
+                try context.save()
+                self.tasks.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .left)
+            } catch {
+                print("Failed saving")
+            }
+
+            success(true)
+        })
+        return UISwipeActionsConfiguration(actions: [deleteTask])
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedTask = tasks[indexPath.row]
         performSegue(withIdentifier: "goToTaskDetail", sender: self)

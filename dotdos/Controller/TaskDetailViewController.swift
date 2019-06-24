@@ -16,6 +16,8 @@ class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     enum TasksFields: CaseIterable {
         case title
         case date
+        case detail
+        case important
     }
 
     @IBOutlet weak var myTableView: UITableView!
@@ -42,18 +44,39 @@ class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         switch indexPath.row {
-            case 0:
-                cell.textLabel?.text = task.value(forKey: "title") as? String
-                break
-            case 1:
-                if let value = task.value(forKey: "date") as? Date {
-                    cell.textLabel?.text = formatDate(date: value, format: "dd/MM/yyyy")
+        case 0:
+            cell.textLabel?.text = task.value(forKey: "title") as? String
+            break
+        case 1:
+            if let value = task.value(forKey: "date") as? Date {
+                cell.textLabel?.text = formatDate(date: value, format: "dd/MM/yyyy")
+            } else {
+                cell.textLabel?.text = "---"
+            }
+            break
+        case 2:
+            if let value = task.value(forKey: "detail") as? String {
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                cell.textLabel?.text = value
+            } else {
+                cell.textLabel?.text = "---"
+            }
+            break
+        case 3:
+            let value = task.value(forKey: "important") as? Bool
+            if value != nil {
+                if value ?? false {
+                    cell.textLabel?.text = "Importante"
                 } else {
                     cell.textLabel?.text = "---"
                 }
-                break
-            default:
-                break
+            } else {
+                cell.textLabel?.text = "---"
+            }
+            break
+        default:
+            break
         }
         
         return cell
