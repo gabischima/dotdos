@@ -30,7 +30,7 @@ class NewTaskViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addTask))
         
         form +++ Section()
             <<< TextRow() { row in
@@ -57,7 +57,7 @@ class NewTaskViewController: FormViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func addTapped() {
+    @objc func addTask() {
         let titlerow: TextRow? = form.rowBy(tag: "title")
         let daterow: DateInlineRow? = form.rowBy(tag: "date")
         let importantrow: SwitchRow? = form.rowBy(tag: "important")
