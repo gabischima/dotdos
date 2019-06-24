@@ -43,6 +43,8 @@ class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
+        cell.selectionStyle = .none
+
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = task.value(forKey: "title") as? String
