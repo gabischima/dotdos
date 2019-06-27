@@ -1,12 +1,20 @@
 PODS:
-  - FSCalendar (2.7.9)
+  - Eureka (5.0.0)
+  - FSCalendar (2.8.0)
 
 DEPENDENCIES:
+  - Eureka
   - FSCalendar
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Eureka
+    - FSCalendar
+
 SPEC CHECKSUMS:
-  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
 
-PODFILE CHECKSUM: ee62263c9203a240d147ba1037467267f9e9011c
+PODFILE CHECKSUM: 3ac99b313cb14ac7f1e19d6fa015345ff382b565
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

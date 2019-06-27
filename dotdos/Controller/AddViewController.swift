@@ -12,13 +12,14 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet weak var mytableview: UITableView!
     
-    let listTitle: [String] = ["Task", "Event", "Note"]
-    let listImg: [UIImage] = [#imageLiteral(resourceName: "task"), #imageLiteral(resourceName: "event"), #imageLiteral(resourceName: "note")]
+    let listTitle: [String] = ["Task"]
+    let listImg: [UIImage] = [#imageLiteral(resourceName: "task")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.mytableview.tableFooterView = UIView()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pattern")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,7 +35,16 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         cell.imageView?.image = listImg[indexPath.row]
         cell.textLabel?.text = listTitle[indexPath.row]
         cell.selectionStyle = .none
-
+        cell.accessoryType = .disclosureIndicator
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "goToAddTask", sender: self)
+        default:
+            break
+        }
     }
 }
