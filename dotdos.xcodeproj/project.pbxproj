@@ -21,6 +21,8 @@
 		06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06DF9CAF22B6C92F00098C48 /* dotdos.xcdatamodeld */; };
 		06DF9CB322B725B000098C48 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DF9CB222B725B000098C48 /* TaskDetailViewController.swift */; };
 		06F14A78D2ABF5385EA60CB7 /* Pods_dotdos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3203284767952AB23230A58 /* Pods_dotdos.framework */; };
+		864B023E22C577C00010C61D /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B023D22C577C00010C61D /* Extensions+Date.swift */; };
+		864B024022C582E10010C61D /* Extensions+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864B023F22C582E10010C61D /* Extensions+Color.swift */; };
 		865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865CBA5320C1AE930060651F /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		06DF9CB222B725B000098C48 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		24B2855F0D4376EDCDDB42B9 /* Pods-dotdos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.release.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.release.xcconfig"; sourceTree = "<group>"; };
 		6D7A8D72D42C0166EA13F263 /* Pods_dotdosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		864B023D22C577C00010C61D /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
+		864B023F22C582E10010C61D /* Extensions+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Color.swift"; sourceTree = "<group>"; };
 		865CBA5320C1AE930060651F /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewTaskViewController.swift; path = dotdos/Controller/NewTaskViewController.swift; sourceTree = SOURCE_ROOT; };
 		930802375C8288FD0EE3683B /* Pods_dotdosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dotdosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8AFDA78E28A8B9048094EE5 /* Pods-dotdos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dotdos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dotdos/Pods-dotdos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				063D77EC22C0055800BDA449 /* Extension+ViewController.swift */,
+				864B023D22C577C00010C61D /* Extensions+Date.swift */,
+				864B023F22C582E10010C61D /* Extensions+Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -414,9 +420,11 @@
 				06DF9CB122B6C92F00098C48 /* dotdos.xcdatamodeld in Sources */,
 				0608D208205FF11A007F3A6D /* AddViewController.swift in Sources */,
 				063D77ED22C0055800BDA449 /* Extension+ViewController.swift in Sources */,
+				864B024022C582E10010C61D /* Extensions+Color.swift in Sources */,
 				0622A128205DFCDB00DE6D34 /* TaskCell.swift in Sources */,
 				0636ADE320323B0A00FA6B72 /* AppDelegate.swift in Sources */,
 				865CBA5420C1AE930060651F /* NewTaskViewController.swift in Sources */,
+				864B023E22C577C00010C61D /* Extensions+Date.swift in Sources */,
 				0608D20C205FF2AC007F3A6D /* HomeViewController.swift in Sources */,
 				06DF9CB322B725B000098C48 /* TaskDetailViewController.swift in Sources */,
 			);
