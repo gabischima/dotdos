@@ -13,7 +13,6 @@ import CoreData
 class HomeViewController: UIViewController {
     
     // MARK:- Variables
-    
     var navigationTitle: String = ""
 
     var tasksLeft: [Tasks] = []
@@ -28,13 +27,11 @@ class HomeViewController: UIViewController {
     var tableViewRight = UITableView()
     
     // MARK:- IBOutlet
-    
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var myScrollView: UIScrollView!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     
     // MARK:- Life cycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +73,6 @@ class HomeViewController: UIViewController {
     }
     
     // MARK:- Functions
-    
     func setUpTableViews () {
         self.tableViewLeft.tableFooterView = UIView()
         self.tableViewLeft.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "taskCell")
@@ -154,9 +150,32 @@ class HomeViewController: UIViewController {
             print("Failed")
         }
     }
+    
+    @objc func markAsDone(sender: UIButton) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Tasks>(entityName: "Tasks")
+        
+        let donevalue = self.tasksMiddle[sender.tag].done
+        
+        if let result = try? context.fetch(fetchRequest) {
+            for data in result {
+                if data.objectID.description == self.tasksMiddle[sender.tag].objectID.description {
+                    data.setValue(!donevalue, forKey: "done")
+                }
+            }
+        }
+        
+        do {
+            try context.save()
+            self.tasksMiddle[sender.tag].setValue(!donevalue, forKey: "done")
+            self.reloadTableView()
+        } catch {
+            print("Failed saving")
+        }
+    }
 
     // MARK:- IBAction
-
     @IBAction func goToToday(_ sender: Any) {
         self.calendar.select(Date(), scrollToDate: true)
         self.reloadTableView()
@@ -171,7 +190,6 @@ class HomeViewController: UIViewController {
     }
     
     // MARK:- Segue Methods
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
@@ -244,10 +262,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
+        
+        cell.btn.tag = indexPath.row
+        cell.btn.addTarget(self, action: #selector(markAsDone(sender:)), for: .touchUpInside)
+        cell.btn.imageView?.tintColor = .black
 
-        var img = #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate)
-        cell.img.image = img
-        cell.img.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         cell.selectionStyle = .none
 
         let text = arr[indexPath.row].value(forKey: "title") as? String
@@ -256,11 +275,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let done = arr[indexPath.row].value(forKey: "done") as? Bool
 
         if done ?? false {
-            img = #imageLiteral(resourceName: "taskDone").withRenderingMode(.alwaysTemplate)
-            cell.img.image = img
-            
+            cell.btn.imageView?.image = #imageLiteral(resourceName: "taskDone").withRenderingMode(.alwaysTemplate)
             attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
         } else {
+            cell.btn.imageView?.image = #imageLiteral(resourceName: "task").withRenderingMode(.alwaysTemplate)
             attributeString.removeAttribute(NSAttributedStringKey.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         }
         
@@ -269,69 +287,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let markAsDone = UIContextualAction(style: .normal, title:  "Feito", handler: { (action:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-
-            // remove the deleted item from the model
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<Tasks>(entityName: "Tasks")
-            
-            let donevalue = self.tasksMiddle[indexPath.row].done
-
-            if let result = try? context.fetch(fetchRequest) {
-                for data in result {
-                    if data.objectID.description == self.tasksMiddle[indexPath.row].objectID.description {
-                        data.setValue(!donevalue, forKey: "done")
-                    }
-                }
-            }
-
-            do {
-                try context.save()
-                self.tasksMiddle[indexPath.row].setValue(!donevalue, forKey: "done")
-            } catch {
-                print("Failed saving")
-            }
-            success(true)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
-                tableView.reloadData()
-            }
-        })
-        markAsDone.backgroundColor = .gray
-
-        return UISwipeActionsConfiguration(actions: [markAsDone])
-    }
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteTask = UIContextualAction(style: .destructive, title:  "Deletar", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-
-            // remove the deleted item from the model
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<Tasks>(entityName: "Tasks")
-
-            if let result = try? context.fetch(fetchRequest) {
-                for data in result {
-                    if data.objectID.description == self.tasksMiddle[indexPath.row].objectID.description {
-                        context.delete(data)
-                    }
-                }
-            }
-
-            do {
-                try context.save()
-                self.tasksMiddle.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .left)
-            } catch {
-                print("Failed saving")
-            }
-
-            success(true)
-        })
-        return UISwipeActionsConfiguration(actions: [deleteTask])
-    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedTask = self.tasksMiddle[indexPath.row]
         performSegue(withIdentifier: "goToTaskDetail", sender: self)
@@ -368,9 +323,7 @@ extension HomeViewController: FSCalendarDataSource, FSCalendarDelegate {
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         self.navigationTitle = formatDate(date: self.calendar.currentPage, format: "LLLL")
-        
         self.navigationController?.navigationBar.topItem?.title = self.navigationTitle
-        //        let month = Calendar.current.component(.month, from: currentPageDate)
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {

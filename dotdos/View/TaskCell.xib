@@ -11,33 +11,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" textLabel="TVq-xk-Hvx" imageView="qlR-WH-hol" style="IBUITableViewCellStyleDefault" id="ueL-wg-UrM" customClass="TaskCell" customModule="dotdos" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" id="ueL-wg-UrM" customClass="TaskCell" customModule="dotdos" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ueL-wg-UrM" id="8Po-6i-sdw">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TVq-xk-Hvx">
-                        <rect key="frame" x="56" y="0.0" width="303" height="79.5"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T67-S7-CJ4">
+                        <rect key="frame" x="16" y="27.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="T67-S7-CJ4" secondAttribute="height" multiplier="1:1" id="aNb-Mu-7eo"/>
+                            <constraint firstAttribute="width" constant="25" id="vWU-jA-RRB"/>
+                        </constraints>
+                        <state key="normal" image="task"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl9-dy-FDy">
+                        <rect key="frame" x="57" y="30" width="302" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="task" id="qlR-WH-hol">
-                        <rect key="frame" x="16" y="27" width="25" height="25"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="T67-S7-CJ4" firstAttribute="leading" secondItem="8Po-6i-sdw" secondAttribute="leading" constant="16" id="0c5-ps-lPK"/>
+                    <constraint firstItem="T67-S7-CJ4" firstAttribute="centerY" secondItem="8Po-6i-sdw" secondAttribute="centerY" id="Npi-78-O4x"/>
+                    <constraint firstAttribute="trailing" secondItem="sl9-dy-FDy" secondAttribute="trailing" constant="16" id="jUj-Zz-Sl4"/>
+                    <constraint firstItem="sl9-dy-FDy" firstAttribute="centerY" secondItem="8Po-6i-sdw" secondAttribute="centerY" id="sIz-pF-cXV"/>
+                    <constraint firstItem="sl9-dy-FDy" firstAttribute="leading" secondItem="T67-S7-CJ4" secondAttribute="trailing" constant="16" id="wbB-zV-Qzg"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="img" destination="qlR-WH-hol" id="YbK-WV-ZWu"/>
-                <outlet property="title" destination="TVq-xk-Hvx" id="XqT-6m-i8H"/>
+                <outlet property="btn" destination="T67-S7-CJ4" id="RaJ-pT-wXe"/>
+                <outlet property="title" destination="sl9-dy-FDy" id="p92-jk-O2B"/>
             </connections>
-            <point key="canvasLocation" x="186.5" y="85"/>
+            <point key="canvasLocation" x="186.40000000000001" y="84.557721139430285"/>
         </tableViewCell>
     </objects>
     <resources>
