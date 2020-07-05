@@ -9,14 +9,22 @@
 import SwiftUI
 
 struct TaskEditor: View {
-    @State var id = UUID()
-    @State var title = ""
-    let onComplete: (UUID, String) -> Void
+    @State var id: UUID = UUID()
+    @State var title: String = ""
+    @State var dueDate: Date = Date()
+    let onComplete: (UUID, String, Date) -> Void
 
     var body: some View {
         NavigationView {
             List {
                 TextField("What do you have to do?", text: $title).font(.system(size: 14, weight: .regular))
+                VStack(alignment: .leading) {
+                    Text("When do you want to do it?").bold()
+                    DatePicker(selection: $dueDate, displayedComponents: .date) {
+                        Text("When do you want to do it?")
+                    }
+                    .labelsHidden()
+                }
             }
             .navigationBarTitle("NEW TASK", displayMode: .inline)
             .navigationBarItems(trailing: Button("Done") {
@@ -26,12 +34,12 @@ struct TaskEditor: View {
     }
 
     private func addTaskAction() {
-        onComplete(id, title)
+        onComplete(id, title, dueDate)
     }
 }
 
 struct TaskEditor_Previews: PreviewProvider {
     static var previews: some View {
-        TaskEditor { (id, title) in }
+        TaskEditor { (id, title, date) in }
     }
 }

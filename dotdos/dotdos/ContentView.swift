@@ -10,6 +10,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection: Int = 0
+    
+    var returnDay: String {
+        let format = DateFormatter()
+        format.dateFormat = "dd"
+        let formattedDate = format.string(from: Date())
+        return formattedDate
+    }
 
     init() {
         // set table view style
@@ -35,7 +42,7 @@ struct ContentView: View {
         TabView(selection:$selection) {
             TaskList()
                 .tabItem({
-                    Image(systemName: "\(returnDay()).square.fill")
+                    Image(systemName: "\(returnDay).square.fill")
                         .font(.system(size: 24))
                 })
                 .tag(0)
@@ -56,13 +63,6 @@ struct ContentView: View {
 
         }
         .accentColor(.primary)
-    }
-    
-    func returnDay () -> String {
-        let format = DateFormatter()
-        format.dateFormat = "dd"
-        let formattedDate = format.string(from: Date())
-        return formattedDate
     }
 }
 

@@ -10,6 +10,7 @@
 		066E81B624B17DF500D12A6C /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E81B524B17DF500D12A6C /* TaskRow.swift */; };
 		066E81B824B17EAC00D12A6C /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E81B724B17EAC00D12A6C /* TaskList.swift */; };
 		066E81BA24B181CD00D12A6C /* TaskEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E81B924B181CD00D12A6C /* TaskEditor.swift */; };
+		0673E95124B18AED00489919 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0673E95024B18AED00489919 /* Status.swift */; };
 		06CB543F24AA41B600B4E2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB543E24AA41B600B4E2CD /* AppDelegate.swift */; };
 		06CB544124AA41B600B4E2CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CB544024AA41B600B4E2CD /* SceneDelegate.swift */; };
 		06CB544424AA41B600B4E2CD /* dotdos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06CB544224AA41B600B4E2CD /* dotdos.xcdatamodeld */; };
@@ -42,6 +43,7 @@
 		066E81B524B17DF500D12A6C /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		066E81B724B17EAC00D12A6C /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		066E81B924B181CD00D12A6C /* TaskEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditor.swift; sourceTree = "<group>"; };
+		0673E95024B18AED00489919 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		06CB543B24AA41B600B4E2CD /* dotdos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dotdos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CB543E24AA41B600B4E2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CB544024AA41B600B4E2CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0673E94F24B18ABA00489919 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06CB544224AA41B600B4E2CD /* dotdos.xcdatamodeld */,
+				0673E95024B18AED00489919 /* Status.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		06CB543224AA41B600B4E2CD = {
 			isa = PBXGroup;
 			children = (
@@ -107,16 +118,16 @@
 		06CB543D24AA41B600B4E2CD /* dotdos */ = {
 			isa = PBXGroup;
 			children = (
+				0673E94F24B18ABA00489919 /* Model */,
 				06CB543E24AA41B600B4E2CD /* AppDelegate.swift */,
 				06CB544024AA41B600B4E2CD /* SceneDelegate.swift */,
 				06CB544524AA41B600B4E2CD /* ContentView.swift */,
 				066E81B724B17EAC00D12A6C /* TaskList.swift */,
-				066E81B524B17DF500D12A6C /* TaskRow.swift */,
 				066E81B924B181CD00D12A6C /* TaskEditor.swift */,
+				066E81B524B17DF500D12A6C /* TaskRow.swift */,
 				06CB544724AA41B800B4E2CD /* Assets.xcassets */,
 				06CB544C24AA41B800B4E2CD /* LaunchScreen.storyboard */,
 				06CB544F24AA41B800B4E2CD /* Info.plist */,
-				06CB544224AA41B600B4E2CD /* dotdos.xcdatamodeld */,
 				06CB544924AA41B800B4E2CD /* Preview Content */,
 			);
 			path = dotdos;
@@ -282,6 +293,7 @@
 				066E81B824B17EAC00D12A6C /* TaskList.swift in Sources */,
 				066E81B624B17DF500D12A6C /* TaskRow.swift in Sources */,
 				06CB544424AA41B600B4E2CD /* dotdos.xcdatamodeld in Sources */,
+				0673E95124B18AED00489919 /* Status.swift in Sources */,
 				066E81BA24B181CD00D12A6C /* TaskEditor.swift in Sources */,
 				06CB543F24AA41B600B4E2CD /* AppDelegate.swift in Sources */,
 				06CB544624AA41B600B4E2CD /* ContentView.swift in Sources */,
