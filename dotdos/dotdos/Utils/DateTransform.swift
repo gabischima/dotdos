@@ -15,6 +15,21 @@ struct DateTransform {
         let formattedDate = format.string(from: Date())
         return formattedDate
     }
+    
+    static func getDateLabel(_ string: String) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "YYYY-MM-dd"
+        guard let dateObj = format.date(from: string) else { return "" }
+        format.dateFormat = "dd/MM/YYYY"
+        return format.string(from: dateObj)
+
+    }
+    
+    static func getDateFromString(_ string: String) -> Date {
+        let format = DateFormatter()
+        format.dateFormat = "YYYY-MM-dd"
+        return format.date(from: string)!
+    }
 
     static func getStringFromDate(_ date: Date) -> String {
         let format = DateFormatter()

@@ -15,9 +15,9 @@ struct TaskList: View {
     var listTitle: String
     var taskRequest: FetchRequest<Task>
     var tasks: FetchedResults<Task> { taskRequest.wrappedValue }
-
+    
     init(_ filter: NSPredicate?) {
-        taskRequest = FetchRequest<Task>(entity: Task.entity(), sortDescriptors: [], predicate: filter)
+        taskRequest = FetchRequest<Task>(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.dueDate, ascending: true)], predicate: filter)
         if filter != nil {
             listTitle = "TODAY"
         } else {
@@ -25,17 +25,32 @@ struct TaskList: View {
         }
     }
     
+    func update(_ result : FetchedResults<Task>)-> [[Task]] {
+        return  Dictionary(grouping: result){ (task: Task) in task.dueDate }.values.sorted() { DateTransform.getDateFromString($0[0].dueDate!) < DateTransform.getDateFromString($1[0].dueDate!) }
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
-                if tasks.count == 0 {
+                if tasks.isEmpty {
                     Text(listTitle == "TODAY" ? "No tasks for today" : "No tasks added")
                 } else {
                     List {
-                        ForEach(tasks, id: \.self) { task in
-                            ZStack {
+                        if listTitle == "TODAY" {
+                            ForEach(tasks, id: \.self) { task in
                                 TaskRow(task: task) { task, newStatus in
                                     self.updateTask(task: task, newStatus: newStatus)
+                                }
+                            }
+                        } else {
+                            ForEach(update(tasks), id: \.self) { (section: [Task]) in
+                                Section(header: Text(DateTransform.getDateLabel(section[0].dueDate ?? ""))
+                                    .font(.system(size: 12, weight: .semibold))) {
+                                    ForEach(section, id: \.self) { task in
+                                        TaskRow(task: task) { task, newStatus in
+                                            self.updateTask(task: task, newStatus: newStatus)
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -86,6 +101,6 @@ struct TaskList: View {
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return TaskList(NSPredicate(format: "dueDate == %@", DateTransform.getStringFromDate(Date()) as CVarArg)).environment(\.managedObjectContext, context).environment(\.colorScheme, .light)
+        return TaskList(NSPredicate(format: "dueDate == %@", DateTransform.getStringFromDate(Date()) as CVarArg)).environment(\.managedObjectContext, context).environment(\.colorScheme, .dark)
     }
 }

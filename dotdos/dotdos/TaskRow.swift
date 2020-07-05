@@ -15,7 +15,7 @@ struct TaskRow: View {
 
     var iconOpacity: Double {
         let maxSize = UIScreen.main.bounds.width / 2
-        return Double(dragOffset.width / maxSize)
+        return Double((dragOffset.width - 24) / maxSize)
     }
     
     var body: some View {
@@ -49,7 +49,6 @@ struct TaskRow: View {
 //                    .font(.system(size: 12, weight: .bold))
 //                    .accessibility(label: Text("Go to task detail"))
             }
-            .background(Color(UIColor.systemBackground))
             .offset(x: self.dragOffset.width)
             .animation(.spring())
             .gesture(DragGesture()
