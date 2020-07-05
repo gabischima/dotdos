@@ -12,20 +12,24 @@ import CoreData
 struct TaskList: View {
     @Environment(\.managedObjectContext) var managedContext
     @State var showingAdd = false
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [], predicate: NSPredicate(format: "dueDate == %@", getStringFromDate(Date()) as CVarArg)) var tasks: FetchedResults<Task>
-    
-    static func getStringFromDate(_ date: Date) -> String {
-        let format = DateFormatter()
-        format.dateFormat = "YYYY-MM-dd"
-        let formattedDate = format.string(from: date)
-        return formattedDate
+    var listTitle: String
+    var taskRequest: FetchRequest<Task>
+    var tasks: FetchedResults<Task> { taskRequest.wrappedValue }
+
+    init(_ filter: NSPredicate?) {
+        taskRequest = FetchRequest<Task>(entity: Task.entity(), sortDescriptors: [], predicate: filter)
+        if filter != nil {
+            listTitle = "TODAY"
+        } else {
+            listTitle = "TASKS"
+        }
     }
     
     var body: some View {
         NavigationView {
             ZStack {
                 if tasks.count == 0 {
-                    Text("No tasks for today")
+                    Text(listTitle == "TODAY" ? "No tasks for today" : "No tasks added")
                 } else {
                     List {
                         ForEach(tasks, id: \.self) { task in
@@ -43,7 +47,7 @@ struct TaskList: View {
             }) {
                 Image(systemName: "plus.circle.fill")
             })
-            .navigationBarTitle("TODAY", displayMode: .inline)
+            .navigationBarTitle("\(listTitle)", displayMode: .inline)
             .sheet(isPresented: $showingAdd) {
                 TaskEditor() { id, title, dueDate in
                  self.addTask(id: id, title: title, dueDate: dueDate)
@@ -65,7 +69,7 @@ struct TaskList: View {
 
         newTask.id = id
         newTask.title = title
-        newTask.dueDate = TaskList.getStringFromDate(dueDate)
+        newTask.dueDate = DateTransform.getStringFromDate(dueDate)
 
         saveContext()
     }
@@ -82,6 +86,6 @@ struct TaskList: View {
 struct TaskList_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        return TaskList().environment(\.managedObjectContext, context).environment(\.colorScheme, .light)
+        return TaskList(NSPredicate(format: "dueDate == %@", DateTransform.getStringFromDate(Date()) as CVarArg)).environment(\.managedObjectContext, context).environment(\.colorScheme, .light)
     }
 }
